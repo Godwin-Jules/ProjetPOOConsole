@@ -64,7 +64,7 @@ public class Client {
 
 	@Override
 	public String toString() {
-		return "Client {\n\tid : " + id + ",\n\tnom : " + nom + ",\n\tprenom : " + prenom + "\n\tnb  facture : " + nbFacture + "}";
+		return "Client {\n\tid : " + id + ",\n\tnom : " + nom + ",\n\tprenom : " + prenom + "\n\tnb  facture : " + nbFacture + "\n}";
 	}
 
 	public String afficher() {

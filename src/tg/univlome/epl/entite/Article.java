@@ -28,11 +28,11 @@ public class Article {
 		this.qt = 0;
 	}
 	
-	public Article(String libelle, float prixUnitaire) {
+	public Article(String libelle, double prixUnitaire) {
 		id_increment += 1;
 		this.id = id_increment;
 		this.libelle = libelle;
-		this.prixUnitaire = prixUnitaire;
+		this.prixUnitaire = (float) prixUnitaire;
 		this.remise = 0;
 		this.qt = 0;
 	}

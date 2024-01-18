@@ -58,6 +58,24 @@ public class RestoFactureGesConsole {
 		entrees.add(new Article("Salade César Classique"));
 		entrees.add(new Article("Salade simple", 8.5, 0.32));
 		entrees.add(new Article("Salade de fruit", 9.0, 0.3));
+		entrees.add(new Article("Salade de chèvre chaud aux noix", 10.50));
+		entrees.add(new Article("Saumon Gravlax à l'aneth", 12.5));
+		entrees.add(new Article("Soupe de potiron et crème fraîche", 8.00));
+		entrees.add(new Article("Spaghetti Carbonara", 14.0));
+		entrees.add(new Article("Tagliatelles aux fruits de mer", 17.5));
+		entrees.add(new Article("Risotto aux asperges", 15.5));
+		entrees.add(new Article("Risotto aux Truffes"));
+		entrees.add(new Article("Risotto aux Champignons Porcini", 9.4));
+		entrees.add(new Article("Risotto aux Champignons sauvages"));
+		entrees.add(new Article("Tiramisu à la framboise", 9.0));
+		entrees.add(new Article("Fondant au chocolat avec vanille", 10.5));
+		entrees.add(new Article("Fondant au Chocolat Grand Cru", 10.5));
+		entrees.add(new Article("Crème brûlée à la vanille", 8.5));
+		entrees.add(new Article("Profiteroles au Chocolat Chaud", 12));
+		entrees.add(new Article("Sorbet Citron Basilic", 9.5));
+		entrees.add(new Article("Crème Brûlée à la Vanille Bourbon", 5));
+		entrees.add(new Article("Tiramisu aux Framboises", 8.1));
+		
 		
 		plats.add(new Article("Spaghetti rouge", 7.9, 0.2));
 		plats.add(new Article("Spaghetti blanc", 8.2, 0.2));
@@ -66,77 +84,33 @@ public class RestoFactureGesConsole {
 		plats.add(new Article("Riz blanc", 8.0, 0.26));
 		plats.add(new Article("Riz cantonné", 8.5, 0.7));
 		plats.add(new Article("Riz jaune", 8.2, 0.32));
-		plats.add(new Article("Pizza", 11.4, 0.36));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
-		plats.add(new Article("Pain", 4.9, 0.012));
+		plats.add(new Article("Filet Mignon Sauce au Poivre Vert", 11.4, 0.36));
+		plats.add(new Article("Poulet Rôti à la Provençale", 16.8, 0.02));
+		plats.add(new Article("Poulet Rôti à l'estragon", 16.5));
+		plats.add(new Article("Saumon Grillé au Citron", 11.6));
+		plats.add(new Article("Magret de Canard aux Fruits Rouges", 13.9));
+		plats.add(new Article("Lasagnes Maison", 10.9, 0.012));
+		plats.add(new Article("Penne à la Puttanesca", 4.9, 0.012));
+		plats.add(new Article("Pavé de saumon à la sauce au citron", 20.0));
 		
 
+		boissons.add(new Article("Eau Minérale Gazeuse (50 cl)", 4.99));
+		boissons.add(new Article("Thé Glacé Maison", 4.2));
 		boissons.add(new Article("Expresso", 8, 0.23));
+		boissons.add(new Article("Expresso Italien", 8.2));
 		boissons.add(new Article("Cappucino", 8, 0.23));
 		boissons.add(new Article("Café", 7, 0.23));
 		boissons.add(new Article("Lait", 6.5, 0.1));
 		boissons.add(new Article("Jus naturel de mangue", 9.4, 0.13));
 		boissons.add(new Article("Sprite", 7.0, 0.23));
 		boissons.add(new Article("Cola world", 7.2, 0.08));
-		boissons.add(new Article("Cocktail", 7.2, 0.08));
+		boissons.add(new Article("Cocktail simple", 7.2, 0.08));
+		boissons.add(new Article("Cocktail Mojito", 12));
 		boissons.add(new Article("Chap", 8.5, 0.08));
 		boissons.add(new Article("Champagne", 9.6, 0.02));
 		boissons.add(new Article("Beaufort", 12.4, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
-		boissons.add(new Article("Jack Daniel", 15.8, 0.1));
+		boissons.add(new Article("Vin Rouge du Domaine de la Vallée", 15.8, 0.1));
+		boissons.add(new Article("Tiramisu à la framboise", 13.1));
 	}
 
 	public static void initialiserClients() {
@@ -179,6 +153,8 @@ public class RestoFactureGesConsole {
 		clients.add(new Client("ETSE", "Kossivi Paul"));
 		clients.add(new Client("ALI", "Rahim"));
 		clients.add(new Client("KLIKO", "Geoffrey"));
+		clients.add(new Client("AMAÏZO", "Teddy"));
+		clients.add(new Client("HOETOWOU", "Yaovi"));
 	}
 
 	/*---------------------------- Les méthodes d'affichage ------------------------------*/
@@ -196,11 +172,11 @@ public class RestoFactureGesConsole {
 	public static void afficherEntrees() {
 
 		int position = 0;
-		System.out.println("\nListe des plats au menu");
+		System.out.println("\nListe des entrées au menu");
 		System.out.printf("\tid - %-35s | %5s  | %s\n", "Entrées", "P.U.", "Remise");
 		for (Article entree : entrees) {
 			++position;
-			System.out.printf("\t%2d - %-35s | $%-5.2f | $%-4.2f\n", position, entree.getLibelle(),
+			System.out.printf("\t%-2d - %-35s | $%-5.2f | $%-4.2f\n", position, entree.getLibelle(),
 					entree.getPrixUnitaire(), entree.getRemise());
 		}
 	}
@@ -209,10 +185,10 @@ public class RestoFactureGesConsole {
 
 		int position = 0;
 		System.out.println("\nListe des plats au menu");
-		System.out.printf("\tid - %-16s | %5s  | %s\n", "Plats", "P.U.", "Remise");
+		System.out.printf("\tid - %-35s | %5s  | %s\n", "Plats", "P.U.", "Remise");
 		for (Article plat : plats) {
 			++position;
-			System.out.printf("\t%2d - %-16s | $%-5.2f | $%-4.2f\n", position, plat.getLibelle(),
+			System.out.printf("\t%-2d - %-35s | $%-5.2f | $%-4.2f\n", position, plat.getLibelle(),
 					plat.getPrixUnitaire(), plat.getRemise());
 		}
 	}
@@ -221,10 +197,10 @@ public class RestoFactureGesConsole {
 
 		int position = 0;
 		System.out.println("\nListe des boissons au menu");
-		System.out.printf("\tid - %-22s | %6s | %s\n", "Boissons", "P.U.", "Remise");
+		System.out.printf("\tid - %-35s | %6s | %s\n", "Boissons", "P.U.", "Remise");
 		for (Article boisson : boissons) {
 			++position;
-			System.out.printf("\t%2d - %-22s | $%-5.2f | $%-4.3f\n", position, boisson.getLibelle(),
+			System.out.printf("\t%-2d - %-35s | $%-5.2f | $%-4.3f\n", position, boisson.getLibelle(),
 					boisson.getPrixUnitaire(), boisson.getRemise());
 		}
 	}
