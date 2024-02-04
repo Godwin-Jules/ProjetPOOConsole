@@ -30,20 +30,19 @@ public class RestoFactureGesConsole {
 			try {
 				System.out.println("Veuillez choisir une opération");
 				System.out.print("\t[1] ~ Enregistrer un nouveau client"
-						+ "\n\t[2] ~ Ajouter une entrée"
-						+ "\n\t[3] ~ Ajouter un plat"
-						+ "\n\t[4] ~ Ajouter une boisson"
-						+ "\n\t[5] ~ Faire une facture"
-						+ "\n\t[6] ~ Consulter les factures précédentes"
-						+ "\n\t[7] ~ Quitter le programme\nVotre choix : ");
+						+ "\n\t[2] ~ Modifier un client existant"
+						+ "\n\t[3] ~ Ajouter une entrée"
+						+ "\n\t[4] ~ Ajouter un plat" + "\n\t[5] ~ Ajouter une boisson" + "\n\t[6] ~ Faire une facture"
+						+ "\n\t[7] ~ Consulter les factures précédentes"
+						+ "\n\t[8] ~ Quitter le programme\nVotre choix : ");
 
 				String choix = scan.nextLine();
 				int choice = Integer.parseInt(choix);
 				return choice;
 			} catch (Exception e) {
-				System.out.println(e.getClass());
+				System.out.println("\n" + e.getClass());
 				System.out.println(e.getMessage());
-				System.out.println("Valeur saisie incorrecte, veuillez reprendre");
+				System.out.println("Valeur saisie incorrecte, veuillez reprendre\n");
 			}
 		}
 	}
@@ -75,8 +74,7 @@ public class RestoFactureGesConsole {
 		entrees.add(new Article("Sorbet Citron Basilic", 9.5));
 		entrees.add(new Article("Crème Brûlée à la Vanille Bourbon", 5));
 		entrees.add(new Article("Tiramisu aux Framboises", 8.1));
-		
-		
+
 		plats.add(new Article("Spaghetti rouge", 7.9, 0.2));
 		plats.add(new Article("Spaghetti blanc", 8.2, 0.2));
 		plats.add(new Article("Couscous", 9.3, 0.12));
@@ -92,7 +90,6 @@ public class RestoFactureGesConsole {
 		plats.add(new Article("Lasagnes Maison", 10.9, 0.012));
 		plats.add(new Article("Penne à la Puttanesca", 4.9, 0.012));
 		plats.add(new Article("Pavé de saumon à la sauce au citron", 20.0));
-		
 
 		boissons.add(new Article("Eau Minérale Gazeuse (50 cl)", 4.99));
 		boissons.add(new Article("Thé Glacé Maison", 4.2));
@@ -180,7 +177,7 @@ public class RestoFactureGesConsole {
 					entree.getPrixUnitaire(), entree.getRemise());
 		}
 	}
-	
+
 	public static void afficherPlats() {
 
 		int position = 0;
@@ -213,8 +210,8 @@ public class RestoFactureGesConsole {
 		String nom = "", prenom = "";
 		System.out.println("Voici la liste des clients disponibles");
 		afficherClients();
-		
-		while(true) {
+
+		while (true) {
 			try {
 				System.out.println("\nEnregistrement d'un nouveau client");
 				System.out.println("Veuillez fournir les informations nécessaires");
@@ -222,7 +219,7 @@ public class RestoFactureGesConsole {
 				nom = scan.nextLine();
 				System.out.print("\tPrenom du nouveau client : ");
 				prenom = scan.nextLine();
-				
+
 				/* Vérification de l'existence du nouveau client */
 				for (Client client : clients) {
 					if (client.getNom().equals(nom.toUpperCase())
@@ -232,7 +229,7 @@ public class RestoFactureGesConsole {
 						return false;
 					}
 				}
-				
+
 				String prenomU = prenom.toUpperCase();
 				String prenomL = prenom.toLowerCase();
 				prenom = prenomU.charAt(0) + prenomL.substring(1);
@@ -240,11 +237,11 @@ public class RestoFactureGesConsole {
 				System.out.println("\n\tClient enregistré avec succès !\n" + clients.get(position).toString());
 				return true;
 
-			} catch(Exception e) {
+			} catch (Exception e) {
 				System.out.println("Informations fournies incorrectes, veuillez réessayer");
 				System.out.println(e.getClass());
 				System.out.println(e.getMessage());
-			}	
+			}
 		}
 	}
 
@@ -254,15 +251,15 @@ public class RestoFactureGesConsole {
 		String libelle, prixUnitaire, remise;
 		System.out.println("\nVoici la liste des entrées disponibles");
 		afficherEntrees();
-		
-		while(true) {
+
+		while (true) {
 			try {
 				System.out.println("\nAjout d'une nouvelle entrée au menu");
 				System.out.println("Veuillez fournir les informations nécessaires");
 				System.out.print("\tNom de la nouvelle entrée : ");
 				libelle = scan.nextLine();
-		
-				/* Vérification de l'existence de la nouvelle entrée*/
+
+				/* Vérification de l'existence de la nouvelle entrée */
 				for (Article entree : entrees) {
 					if (entree.getLibelle().toUpperCase().equals(libelle.toUpperCase())) {
 						System.out.println("\nCette entrée existe déjà dans la base, veuillez ajouter un autre !");
@@ -270,13 +267,13 @@ public class RestoFactureGesConsole {
 						return false;
 					}
 				}
-		
+
 				System.out.print("\tPrix unitaire de la nouvelle entrée : ");
 				prixUnitaire = scan.nextLine();
-				
+
 				System.out.print("\tRemise de la nouvelle entrée: ");
 				remise = scan.nextLine();
-				
+
 				entrees.add(new Article(libelle, Float.parseFloat(prixUnitaire), Float.parseFloat(remise)));
 				System.out.println("\n\tNouvelle entrée créée avec succès !\n\t" + entrees.get(position).toString());
 				return true;
@@ -287,21 +284,21 @@ public class RestoFactureGesConsole {
 			}
 		}
 	}
-	
+
 	public static boolean ajouterPlat() {
 
 		int position = plats.size();
 		String libelle, prixUnitaire, remise;
 		System.out.println("\nVoici la liste des plats disponibles");
 		afficherPlats();
-		
+
 		while (true) {
 			try {
 				System.out.println("\nAjout d'un nouveau plat au menu");
 				System.out.println("Veuillez fournir les informations nécessaires");
 				System.out.print("\tNom du nouveau plat : ");
 				libelle = scan.nextLine();
-		
+
 				/* Vérification de l'existence du nouveau plat */
 				for (Article plat : plats) {
 					if (plat.getLibelle().toUpperCase().equals(libelle.toUpperCase())) {
@@ -310,17 +307,17 @@ public class RestoFactureGesConsole {
 						return false;
 					}
 				}
-		
+
 				System.out.print("\tPrix unitaire du nouveau plat : ");
 				prixUnitaire = scan.nextLine();
-				
+
 				System.out.print("\tRemise du nouveau plat : ");
 				remise = scan.nextLine();
-				
+
 				plats.add(new Article(libelle, Float.parseFloat(prixUnitaire), Float.parseFloat(remise)));
 				System.out.println("\n\tNouveau plat créé avec succès !\n\t" + plats.get(position).toString());
 				return true;
-			} catch(Exception e) {
+			} catch (Exception e) {
 				System.out.println("Informations fournies incorrectes, veuillez reprendre");
 				System.out.println(e.getClass());
 				System.out.println(e.getMessage());
@@ -334,14 +331,14 @@ public class RestoFactureGesConsole {
 		String libelle, prixUnitaire, remise;
 		System.out.println("\nVoici la liste des boissons disponibles");
 		afficherBoissons();
-		
+
 		while (true) {
 			try {
 				System.out.println("\nAjout d'une nouvelle boisson au menu");
 				System.out.println("Veuillez fournir les informations nécessaires");
 				System.out.print("\tNom de la nouvelle boisson : ");
 				libelle = scan.nextLine();
-		
+
 				/* Vérification de l'existence de la nouvelle boisson */
 				for (Article boisson : boissons) {
 					if (boisson.getLibelle().toUpperCase().equals(libelle.toUpperCase())) {
@@ -350,15 +347,16 @@ public class RestoFactureGesConsole {
 						return false;
 					}
 				}
-		
+
 				System.out.print("\tPrix unitaire de la nouvelle boisson : ");
 				prixUnitaire = scan.nextLine();
-				
+
 				System.out.print("\tRemise de la nouvelle boisson : ");
 				remise = scan.nextLine();
-				
+
 				boissons.add(new Article(libelle, Float.parseFloat(prixUnitaire), Float.parseFloat(remise)));
-				System.out.println("\n\tNouvelle boisson enregistrée avec succès !\n\t" + boissons.get(position).toString());
+				System.out.println(
+						"\n\tNouvelle boisson enregistrée avec succès !\n\t" + boissons.get(position).toString());
 				return true;
 			} catch (Exception e) {
 				System.out.println("Informations fournies incorrectes, veuillez reprendre");
@@ -369,8 +367,6 @@ public class RestoFactureGesConsole {
 	}
 
 	{
-		/*--------------------------- Les méthodes de modification ---------------------------*/
-
 //	public static void modifierPlat() {
 //		
 //		int position = plats.size();
@@ -415,6 +411,7 @@ public class RestoFactureGesConsole {
 //		
 //	}
 	}
+
 	/*------------------------------- Les méthodes de choix ------------------------------*/
 
 	public static Client choisirClient() {
@@ -432,7 +429,7 @@ public class RestoFactureGesConsole {
 				} else {
 					System.out.println("\n\tChoix hors de l'intervale de sélection");
 				}
-			} catch(Exception e) {
+			} catch (Exception e) {
 				System.out.println("Saisie incorrecte, veuillez reprendre");
 				System.out.println(e.getClass());
 				System.out.println(e.getMessage());
@@ -444,41 +441,41 @@ public class RestoFactureGesConsole {
 
 		System.out.println("\nChoisir une entrée");
 		afficherEntrees();
-		
-		while(true) {
+
+		while (true) {
 			try {
 				System.out.printf("\n\tVotre choix d'entrée (1 - %d ou 0 pour ne rien choisir) : ", entrees.size());
 				String choix = scan.nextLine();
 				int choice = Integer.parseInt(choix);
-		
+
 				if (choice == 0) {
 					System.out.println("\n\tVous avez choisi aucune entrée !");
 					return null;
-				} else if(choice > 0 && choice <= entrees.size()) {
+				} else if (choice > 0 && choice <= entrees.size()) {
 					System.out.println(entrees.get(choice - 1).toString());
 					return entrees.get(choice - 1);
 				} else {
 					System.out.println("Choix hors de l'intervalle de sélection");
 				}
-			} catch(Exception e) {
+			} catch (Exception e) {
 				System.out.println("Saisie incorrecte, veuillez reprendre");
 				System.out.println(e.getClass());
 				System.out.println(e.getMessage());
 			}
 		}
 	}
-	
+
 	public static Article choisirPlat() {
 
 		System.out.println("\nChoisir un plat");
 		afficherPlats();
-		
+
 		while (true) {
 			try {
 				System.out.printf("Votre choix de plat (1 - %d ou 0 pour ne rien choisir) : ", plats.size());
 				String choix = scan.nextLine();
 				int choice = Integer.parseInt(choix);
-		
+
 				if (choice == 0) {
 					System.out.println("\n\tVous avez choisi aucun plat !");
 					return null;
@@ -500,13 +497,13 @@ public class RestoFactureGesConsole {
 
 		System.out.println("\nChoisir une boisson");
 		afficherBoissons();
-		
-		while(true) {
+
+		while (true) {
 			try {
 				System.out.printf("Votre choix de boisson (1 - %d ou 0 pour ne rien choisir) : ", boissons.size());
 				String choix = scan.nextLine();
 				int choice = Integer.parseInt(choix);
-		
+
 				if (choice == 0) {
 					System.out.println("\n\tVous avez choisi aucune boisson");
 					return null;
@@ -523,8 +520,7 @@ public class RestoFactureGesConsole {
 			}
 		}
 	}
-	
-	
+
 	/*----------------------------- Les méthodes d'exécution -----------------------------*/
 
 	public static Commande faireCommande() {
@@ -533,7 +529,7 @@ public class RestoFactureGesConsole {
 		Article entree = null;
 		Article plat = null;
 		Article boisson = null;
-		
+
 		while (true) {
 
 			System.out.println("\nFaire une commande");
@@ -549,7 +545,7 @@ public class RestoFactureGesConsole {
 				System.out.println(e.getClass());
 				System.out.println(e.getMessage());
 			}
-			
+
 			try {
 				plat = choisirPlat();
 				if (plat != null) {
@@ -557,7 +553,7 @@ public class RestoFactureGesConsole {
 					String qt = scan.nextLine();
 					commande.ajouterPlat(plat, Integer.parseInt(qt));
 				}
-			} catch(Exception e) {
+			} catch (Exception e) {
 				System.out.println("Erreur lors de l'enregistrement du plat principal");
 				System.out.println(e.getClass());
 				System.out.println(e.getMessage());
@@ -572,7 +568,7 @@ public class RestoFactureGesConsole {
 				} else if (boisson == null && plat == null && entree == null) {
 					return commande;
 				}
-			} catch(Exception e) {
+			} catch (Exception e) {
 				System.out.println("Erreur lors de l'enregistrement de votre boisson");
 				System.out.println(e.getClass());
 				System.out.println(e.getMessage());
@@ -602,7 +598,7 @@ public class RestoFactureGesConsole {
 			client.setNbFacture(client.getNbFacture() + 1);
 			factures.add(facture);
 			facture.afficher();
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("Erreur lors de l'enregistrement de la facture");
 			System.out.println(e.getClass());
 			System.out.println(e.getMessage());
@@ -616,11 +612,11 @@ public class RestoFactureGesConsole {
 		System.out.println("\t(1) - Afficher les informations concernant les anciennes factures");
 		System.out.println("\t(2) - Afficher une facture spécifique");
 		System.out.println("\t(3) - Afficher toutes les factures précédentes");
-		
+
 		try {
 			System.out.print("\nVotre choix : ");
 			String choix = scan.nextLine();
-			
+
 			if (Integer.parseInt(choix) == 1) {
 				if (factures.size() == 0) {
 					System.out.println("Aucune facture enregistée précedemment");
@@ -641,7 +637,7 @@ public class RestoFactureGesConsole {
 						++i;
 						System.out.println("N° " + i + " " + facture.toString());
 					}
-					
+
 					try {
 						System.out.printf("Votre choix (1 - %d) : ", factures.size());
 						String choice = scan.nextLine();
@@ -652,7 +648,7 @@ public class RestoFactureGesConsole {
 						} else {
 							System.out.println("Choix introuvable, veuillez réessayer !");
 						}
-					} catch(Exception e) {
+					} catch (Exception e) {
 						System.out.println("Saisie invalide");
 						System.out.println(e.getClass());
 						System.out.println(e.getMessage());
@@ -671,14 +667,85 @@ public class RestoFactureGesConsole {
 			} else {
 				System.out.println("Choix incorrect !");
 			}
-		} catch(Exception e) {
+		} catch (Exception e) {
 			System.out.println("Choix invalide");
 			System.out.println(e.getClass());
 			System.out.println(e.getMessage());
 		}
 	}
 
-	/*-----------------------------Les méthodes de recherches ----------------------------*/
+	/*-----------------------------La méthode de vérification ----------------------------*/
+
+	public static boolean verifClient(String nom, String prenom) {
+
+		for (Client client : clients) {
+			if (client.getNom().toUpperCase().equals(nom.toUpperCase())
+					&& client.getPrenom().toUpperCase().equals(prenom.toUpperCase())) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/*--------------------------- Les méthodes de modification ---------------------------*/
+
+	public static void modifierClient() {
+
+		int position = clients.size(), clientIndex = -1;
+		String nom, prenom, choix;
+		Client clientAModifier = null;
+		System.out.println("Veuillez d'abord sélectionner un client dans la base");
+		afficherClients();
+		System.out.printf("\tVotre choix (1 - %d) : ", position);
+		choix = scan.nextLine();
+		try {
+			clientIndex = Integer.parseInt(choix);
+		} catch (Exception e) {
+			System.out.println("\nSaisie incorrecte, veuillez reprendre !");
+			System.out.println(e.getClass());
+			System.out.println(e.getMessage());
+			System.out.println("\n\tErreur lors de la modification !");
+		}
+		
+		try {
+			clientAModifier = clients.get(clientIndex - 1);
+		} catch(Exception e) {
+			System.out.println("Erreur lors de la sélection du client !");
+			System.out.println(e.getClass());
+			System.out.println(e.getMessage());
+			System.out.println("Veuillez réessayer !");
+		}
+		
+		if (clientAModifier == null) {
+			System.out.println("Vous avez fait un choix invalide !");
+			System.out.print("\n\tVoulez-vous reprendre ? (o/n) : ");
+			String choice = scan.nextLine();
+			if (choice.charAt(0) == 'o' || choice.charAt(0) == 'O') {
+				modifierClient();
+			} else {
+				System.out.println("Modification interrompue");
+			}
+		} else {
+			// On passe maintenant à la modification des différents attributs de l'objet
+			// client
+			System.out.println("\n-------------- Modification du client choisi --------------\n");
+			System.out.printf("\tAncien nom : %s,\t nouveau nom : ", clientAModifier.getNom());
+			nom = scan.nextLine();
+			System.out.printf("\tAncien prénom : %s,\t nouveau(x) prénom(s) : ", clientAModifier.getPrenom());
+			prenom = scan.nextLine();
+			if (verifClient(nom, prenom)) {
+				System.out.println("\nCe client existe déjà dans la base, veuillez réessayer !");
+			} else {
+				Client clientAInserer = new Client(nom.toUpperCase(),
+						prenom.toUpperCase().charAt(0) + prenom.toLowerCase().substring(1));
+				clientAInserer.setNbFacture(clients.get(clientIndex - 1).getNbFacture());
+				clients.add(clientIndex - 1, clientAInserer);
+				System.out.println("\nModification effectuée avec succès !");
+				System.out.println(clients.get(clientIndex - 1).toString());
+			}
+		}
+	}
 
 	/*----------------------------- Les méthodes d'exécution -----------------------------*/
 
@@ -689,21 +756,24 @@ public class RestoFactureGesConsole {
 			ajouterClient();
 			break;
 		case 2:
-			ajouterEntree();
+			modifierClient();
 			break;
 		case 3:
-			ajouterPlat();
+			ajouterEntree();
 			break;
 		case 4:
-			ajouterBoisson();
+			ajouterPlat();
 			break;
 		case 5:
-			faireUneFacture();
+			ajouterBoisson();
 			break;
 		case 6:
-			consulterFactures();
+			faireUneFacture();
 			break;
 		case 7:
+			consulterFactures();
+			break;
+		case 8:
 			System.out.println("Merci d'avoir utilisé ce programme, à la prochaine !");
 			System.exit(-1);
 		default:
@@ -731,7 +801,7 @@ public class RestoFactureGesConsole {
 					scan.close();
 					break;
 				}
-			} catch(Exception e) {
+			} catch (Exception e) {
 				System.out.println("Saisie invalide");
 				System.out.println(e.getClass());
 				System.out.println(e.getMessage());
